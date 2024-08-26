@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.nagina_international.OMS_V1.entity.Order;
 import com.nagina_international.OMS_V1.service.OrderService;
@@ -27,19 +30,4 @@ public class OrderController {
 		orderService.saveOrder(order);
 		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
-
-    @RestController
-    @RequestMapping("/api")
-    public static class TestController {
-
-        @GetMapping("/test")
-        public String getTest() {
-            return "Test";
-        }
-
-        @GetMapping("/test2")
-        public String getTest2() {
-            return "Test2";
-        }
-    }
 }
